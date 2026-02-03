@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstaVid Editor - Typography & Charts for Instagram</title>
+  <meta name="description"
+    content="Create stunning Instagram videos with beautiful typography, animated charts, and typing effects. Export in MP4 format." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="url(#logoGrad)" />
+          <path d="M8 12L16 8L24 12V20L16 24L8 20V12Z" stroke="white" stroke-width="2" fill="none" />
+          <circle cx="16" cy="16" r="3" fill="white" />
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#6366f1" />
+              <stop offset="100%" stop-color="#a855f7" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>InstaVid Editor</span>
+      </div>
+      <div class="header-controls">
+        <button class="btn btn-ghost" id="newProjectBtn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          New
+        </button>
+        <button class="btn btn-primary" id="exportBtn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Export MP4
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Editor Layout -->
+    <main class="editor-layout">
+      <!-- Left Panel - Elements -->
+      <aside class="panel panel-left">
+        <div class="panel-header">
+          <h2>Elements</h2>
+        </div>
+        <div class="panel-content">
+          <!-- Element Categories -->
+          <div class="element-category">
+            <h3>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 7V4h16v3M9 20h6M12 4v16" />
+              </svg>
+              Typography
+            </h3>
+            <div class="element-grid">
+              <button class="element-btn" data-element="heading" title="Add Heading">
+                <span class="element-preview heading-preview">Aa</span>
+                <span class="element-label">Heading</span>
+              </button>
+              <button class="element-btn" data-element="subheading" title="Add Subheading">
+                <span class="element-preview subheading-preview">Aa</span>
+                <span class="element-label">Subhead</span>
+              </button>
+              <button class="element-btn" data-element="body" title="Add Body Text">
+                <span class="element-preview body-preview">Aa</span>
+                <span class="element-label">Body</span>
+              </button>
+              <button class="element-btn" data-element="caption" title="Add Caption">
+                <span class="element-preview caption-preview">Aa</span>
+                <span class="element-label">Caption</span>
+              </button>
+              <button class="element-btn" data-element="quote" title="Add Quote">
+                <span class="element-preview quote-preview">"</span>
+                <span class="element-label">Quote</span>
+              </button>
+              <button class="element-btn" data-element="stat" title="Add Stat Number">
+                <span class="element-preview stat-preview">123</span>
+                <span class="element-label">Stat</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="element-category">
+            <h3>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M18 20V10M12 20V4M6 20v-6" />
+              </svg>
+              Charts
+            </h3>
+            <div class="element-grid">
+              <button class="element-btn" data-element="bar-chart" title="Add Bar Chart">
+                <span class="element-preview chart-preview">
+                  <svg width="32" height="24" viewBox="0 0 32 24">
+                    <rect x="2" y="12" width="6" height="10" fill="currentColor" rx="1" />
+                    <rect x="10" y="6" width="6" height="16" fill="currentColor" rx="1" />
+                    <rect x="18" y="2" width="6" height="20" fill="currentColor" rx="1" />
+                  </svg>
+                </span>
+                <span class="element-label">Bar</span>
+              </button>
+              <button class="element-btn" data-element="line-chart" title="Add Line Chart">
+                <span class="element-preview chart-preview">
+                  <svg width="32" height="24" viewBox="0 0 32 24">
+                    <polyline points="2,20 10,12 18,16 30,4" stroke="currentColor" stroke-width="2" fill="none" />
+                    <circle cx="2" cy="20" r="2" fill="currentColor" />
+                    <circle cx="10" cy="12" r="2" fill="currentColor" />
+                    <circle cx="18" cy="16" r="2" fill="currentColor" />
+                    <circle cx="30" cy="4" r="2" fill="currentColor" />
+                  </svg>
+                </span>
+                <span class="element-label">Line</span>
+              </button>
+              <button class="element-btn" data-element="pie-chart" title="Add Pie Chart">
+                <span class="element-preview chart-preview">
+                  <svg width="32" height="24" viewBox="0 0 32 24">
+                    <circle cx="16" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3" />
+                    <path d="M16 12 L16 2 A10 10 0 0 1 26 12 Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span class="element-label">Pie</span>
+              </button>
+              <button class="element-btn" data-element="donut-chart" title="Add Donut Chart">
+                <span class="element-preview chart-preview">
+                  <svg width="32" height="24" viewBox="0 0 32 24">
+                    <circle cx="16" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="4"
+                      stroke-dasharray="25 50" />
+                  </svg>
+                </span>
+                <span class="element-label">Donut</span>
+              </button>
+              <button class="element-btn" data-element="counter" title="Add Counter">
+                <span class="element-preview counter-preview">+1M</span>
+                <span class="element-label">Counter</span>
+              </button>
+              <button class="element-btn" data-element="progress" title="Add Progress Bar">
+                <span class="element-preview progress-preview">
+                  <div class="mini-progress"></div>
+                </span>
+                <span class="element-label">Progress</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="element-category">
+            <h3>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+              Shapes
+            </h3>
+            <div class="element-grid">
+              <button class="element-btn" data-element="rectangle" title="Add Rectangle">
+                <span class="element-preview shape-preview">
+                  <div class="shape-rect"></div>
+                </span>
+                <span class="element-label">Rect</span>
+              </button>
+              <button class="element-btn" data-element="circle" title="Add Circle">
+                <span class="element-preview shape-preview">
+                  <div class="shape-circle"></div>
+                </span>
+                <span class="element-label">Circle</span>
+              </button>
+              <button class="element-btn" data-element="line" title="Add Line">
+                <span class="element-preview shape-preview">
+                  <div class="shape-line"></div>
+                </span>
+                <span class="element-label">Line</span>
+              </button>
+              <button class="element-btn" data-element="arrow" title="Add Arrow">
+                <span class="element-preview shape-preview">→</span>
+                <span class="element-label">Arrow</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center - Canvas Area -->
+      <section class="canvas-container">
+        <div class="canvas-toolbar">
+          <div class="zoom-controls">
+            <button class="toolbar-btn" id="zoomOutBtn" title="Zoom Out">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35M8 11h6" />
+              </svg>
+            </button>
+            <span class="zoom-level" id="zoomLevel">100%</span>
+            <button class="toolbar-btn" id="zoomInBtn" title="Zoom In">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35M8 11h6M11 8v6" />
+              </svg>
+            </button>
+          </div>
+          <div class="canvas-info">
+            <span>1080 × 1920</span>
+            <span class="divider">•</span>
+            <span>Instagram Reel</span>
+          </div>
+          <div class="playback-controls">
+            <button class="toolbar-btn" id="playBtn" title="Play/Pause">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" id="playIcon">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+            <span class="time-display" id="timeDisplay">0:00 / 0:10</span>
+          </div>
+          <div class="bg-color-picker">
+            <label>BG:</label>
+            <input type="color" id="bgColorPicker" value="#0a0a0f" title="Background Color">
+          </div>
+        </div>
+
+        <div class="canvas-wrapper" id="canvasWrapper">
+          <div class="canvas-frame" id="canvasFrame">
+            <canvas id="mainCanvas" width="1080" height="1920"></canvas>
+            <div class="element-overlay" id="elementOverlay"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel - Properties -->
+      <aside class="panel panel-right">
+        <div class="panel-header">
+          <h2>Properties</h2>
+        </div>
+        <div class="panel-content" id="propertiesContent">
+          <!-- Default: No selection -->
+          <div class="no-selection">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+              opacity="0.5">
+              <path d="M15 15l6 6m-11-3a8 8 0 110-16 8 8 0 010 16z" />
+            </svg>
+            <p>Select an element to edit its properties</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Timeline -->
+    <footer class="timeline-container">
+      <div class="timeline-header">
+        <div class="timeline-controls">
+          <button class="timeline-btn" id="addKeyframeBtn" title="Add Keyframe">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <button class="timeline-btn" id="deleteLayerBtn" title="Delete Layer">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+        <div class="duration-control">
+          <label for="videoDuration">Duration:</label>
+          <input type="number" id="videoDuration" min="1" max="60" value="10" />
+          <span>sec</span>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-layers" id="timelineLayers">
+          <!-- Layers will be added dynamically -->
+        </div>
+        <div class="timeline-tracks" id="timelineTracks">
+          <div class="timeline-ruler" id="timelineRuler"></div>
+          <div class="timeline-track-container" id="trackContainer">
+            <!-- Tracks will be added dynamically -->
+          </div>
+          <div class="timeline-playhead" id="playhead"></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="exportModal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Export Video</h3>
+          <button class="modal-close" id="closeExportModal">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="export-preview" id="exportPreview">
+            <div class="export-progress" id="exportProgress">
+              <div class="progress-ring">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                  <circle cx="60" cy="60" r="54" stroke="url(#progressGrad)" stroke-width="8" fill="none"
+                    stroke-linecap="round" stroke-dasharray="339.292" stroke-dashoffset="339.292" id="progressCircle" />
+                  <defs>
+                    <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#6366f1" />
+                      <stop offset="100%" stop-color="#a855f7" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <span class="progress-text" id="progressText">0%</span>
+              </div>
+              <p class="progress-status" id="progressStatus">Preparing...</p>
+            </div>
+          </div>
+          <div class="export-options" id="exportOptions">
+            <div class="option-group">
+              <label>Quality</label>
+              <div class="option-buttons">
+                <button class="option-btn" data-quality="720">720p</button>
+                <button class="option-btn active" data-quality="1080">1080p</button>
+                <button class="option-btn" data-quality="4k">4K</button>
+              </div>
+            </div>
+            <div class="option-group">
+              <label>Frame Rate</label>
+              <div class="option-buttons">
+                <button class="option-btn" data-fps="24">24 fps</button>
+                <button class="option-btn active" data-fps="30">30 fps</button>
+                <button class="option-btn" data-fps="60">60 fps</button>
+              </div>
+            </div>
+            <div class="option-group">
+              <label>Include Audio</label>
+              <label class="toggle">
+                <input type="checkbox" id="includeAudio" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="cancelExport">Cancel</button>
+          <button class="btn btn-primary" id="startExport">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+            Export MP4
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart Data Modal -->
+    <div class="modal" id="chartDataModal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Chart Data</h3>
+          <button class="modal-close" id="closeChartModal">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="chart-data-editor" id="chartDataEditor">
+            <div class="data-row data-header">
+              <span>Label</span>
+              <span>Value</span>
+              <span>Color</span>
+            </div>
+            <div id="dataRows">
+              <!-- Data rows will be added dynamically -->
+            </div>
+            <button class="btn btn-ghost" id="addDataRow">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              Add Row
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="cancelChartData">Cancel</button>
+          <button class="btn btn-primary" id="applyChartData">Apply Data</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
