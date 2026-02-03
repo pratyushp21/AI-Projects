@@ -1,6 +1,6 @@
-# Typography Video Editor 🎬
+# Video Editing Tool - Simple Version 🎬
 
-A modern web-based video editor for creating aesthetic Instagram-format videos with typography, charts, shapes, and animations.
+A streamlined React-based video editor for creating Instagram-format videos with typography, charts, shapes, and animations. Perfect for quick social media content creation.
 
 ## ✨ Features
 
@@ -37,13 +37,23 @@ A modern web-based video editor for creating aesthetic Instagram-format videos w
 - **Selection**: Click to select and edit properties
 - **Keyboard Shortcuts**: Delete key for quick removal
 
-## 🚀 Installation
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone or navigate to the project directory
+cd "Video Editing Tool - Simple Version"
+
+# Install dependencies
 npm install
 ```
 
-## 💻 Run Development Server
+### Run Development Server
 
 ```bash
 npm run dev
@@ -51,7 +61,7 @@ npm run dev
 
 Open your browser to the URL shown (usually http://localhost:5173)
 
-## 📦 Build for Production
+### Build for Production
 
 ```bash
 npm run build
@@ -65,7 +75,7 @@ npm run build
 3. Text appears on canvas with typing animation
 
 ### Adding Charts
-1. Enter comma-separated data (e.g., 10,20,30,40,50)
+1. Enter comma-separated data (e.g., `10,20,30,40,50`)
 2. Click Bar, Line, or Pie chart button
 3. Adjust size and color in properties panel
 
@@ -92,13 +102,15 @@ npm run build
 1. Add and position your elements
 2. Click Play to preview animations
 3. Click "Export Video" button
-4. Video downloads automatically as .webm file
+4. Video downloads automatically as `.webm` file
 
 ## ⌨️ Keyboard Shortcuts
 
-- **Delete**: Remove selected element
-- **Ctrl/Cmd + Z**: Undo (via toolbar)
-- **Ctrl/Cmd + Y**: Redo (via toolbar)
+| Shortcut | Action |
+|----------|--------|
+| `Delete` | Remove selected element |
+| `Ctrl/Cmd + Z` | Undo (via toolbar) |
+| `Ctrl/Cmd + Y` | Redo (via toolbar) |
 
 ## 🎨 Tips for Best Results
 
@@ -111,11 +123,25 @@ npm run build
 
 ## 🛠️ Tech Stack
 
-- React 18
-- Vite
-- Chart.js
-- html2canvas
-- CSS3 Animations
+- **React 18** - UI Framework
+- **Vite** - Build Tool
+- **Chart.js** - Data Visualization
+- **html2canvas** - Canvas Rendering
+- **CSS3 Animations** - Smooth Transitions
+
+## 📁 Project Structure
+
+```
+├── src/
+│   ├── components/      # React components
+│   ├── App.jsx          # Main application
+│   ├── App.css          # App styles
+│   ├── index.css        # Global styles
+│   └── main.jsx         # Entry point
+├── index.html           # HTML template
+├── package.json         # Dependencies
+└── vite.config.js       # Vite configuration
+```
 
 ## 📱 Perfect For
 
@@ -129,6 +155,14 @@ npm run build
 
 ## 🐛 Known Limitations
 
-- Export format is WebM (convert to MP4 if needed)
+- Export format is WebM (convert to MP4 if needed using tools like FFmpeg)
 - Export captures visual elements only
 - Best performance in Chrome/Edge browsers
+
+## 📄 License
+
+This project is open source and available for personal and commercial use.
+
+---
+
+**Related Project**: Check out the [Video Editor Tool - Typography](../Video%20Editor%20Tool%20-%20%20Typography) for a more advanced version with full timeline support and enhanced features.
